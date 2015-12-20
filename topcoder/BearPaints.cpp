@@ -16,7 +16,7 @@ class BearPaints {
                 if (big <= M)
                 {
                     if (big > biggest) biggest = big;
-                    else return biggest;
+                    if (big < biggest) return biggest;
                 }
             }
         }
