@@ -6,20 +6,26 @@ using namespace std;
 
 class BearPaints {
     public:
-    long maxArea(int W, int H, long M) {
-        long biggest = 0;
-        for(int i = W; i >= 0; i--)
+    long long maxArea(int W, int H, long long M) {
+        int smaller_side = min(W, H);
+        int bigger_side = max(W, H);
+        long long area = smaller_side * smaller_side;
+        if (area < M)
         {
-            for(int j = H; j >= 0; j--)
-            {
-                long big = long(i) * j;
-                if (big <= M)
-                {
-                    if (big > biggest) biggest = big;
-                    if (big < biggest) return biggest;
-                }
-            }
+            long long remaining = M - area;
+            long long additional = remaining / smaller_side;
+            area += (additional * smaller_side);
+            return area;
         }
-        return biggest;
+        int i = smaller_side;
+        while (i*i > M)
+        {
+            i--;
+        }
+        area = i * i;
+        long long remaining = M - area;
+        long long additional = remaining / i;
+        area += additional;
+        return area;
     }
 };
