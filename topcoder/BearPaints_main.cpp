@@ -1,5 +1,6 @@
 #include "BearPaints.cpp"
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -14,12 +15,12 @@ int main(int argc, char* argv[]) {
     }
     istringstream st(argv[2]);
     int H;
-    if (!(ss >> H)) {
+    if (!(st >> H)) {
         cerr << "Invalid number " << argv[2] << endl;
     }
     istringstream su(argv[3]);
     long long M;
-    if (!(ss >> M)) {
+    if (!(su >> M)) {
         cerr << "Invalid number " << argv[3] << endl;
     }
 
